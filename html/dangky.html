@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký</title>
+    <link rel="stylesheet" href="../css/danngky.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="signup-container">
+        <form id="registerForm">
+            <h2>Đăng Ký tài khoản</h2>
+            <div class="input-group">
+                <input type="text" id="reg-fullname" placeholder="Họ và tên" required>
+                <span class="char-count">0/80</span>
+            </div>
+            <div class="input-group">
+                <input type="email" id="reg-email" placeholder="Email (đồng thời là tên đăng nhập)" required>
+            </div>
+            <div class="input-group password-group">
+                <input type="password" placeholder="Mật khẩu" id="reg-password" required>
+                <span class="password-toggle"><i class="far fa-eye"></i></span>
+            </div>
+            <div class="input-group password-group">
+                <input type="password" placeholder="Nhập lại mật khẩu mới" id="reg-confirm-password" required>
+                <span class="password-toggle"><i class="far fa-eye"></i></span>
+            </div>
+
+            <div class="password-requirements">
+                <p>Mật khẩu bao gồm</p>
+                <ul>
+                    <li id="req-length"><i class="fas fa-check"></i> Ít nhất 8 ký tự</li>
+                    <li id="req-case"><i class="fas fa-check"></i> Chữ hoa & chữ thường</li>
+                    <li id="req-number"><i class="fas fa-check"></i> Ít nhất 1 số</li>
+                </ul>
+            </div>
+
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" required>
+                    Tôi đã đọc, hiểu và đồng ý với <a href="../html/chinhsach.html" class="link">Điều khoản và Điều kiện</a> của trang thông tin điện tử này khi đăng ký tài khoản.
+                </label>
+            </div>
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox"> Đăng ký nhận thông tin chương trình khuyến mãi, dịch vụ vụ từ VinFast.
+                </label>
+            </div>
+            <button type="submit" class="register-button">Đăng ký</button>
+        </form>
+    </div>
+
+    <script>
+      
+        // JavaScript for password toggle (eye icon)
+        document.querySelectorAll('.password-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const passwordInput = this.previousElementSibling;
+                const icon = this.querySelector('i');
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    icon.classList.remove('far', 'fa-eye');
+                    icon.classList.add('far', 'fa-eye-slash');
+                } else {
+                    passwordInput.type = 'password';
+                    icon.classList.remove('far', 'fa-eye-slash');
+                    icon.classList.add('far', 'fa-eye');
+                }
+            });
+        });
+
+        // JavaScript for character count (Họ và tên)
+        const nameInput = document.querySelector('.input-group input[type="text"]');
+        const charCount = document.querySelector('.char-count');
+        nameInput.addEventListener('input', function() {
+            const currentLength = this.value.length;
+            charCount.textContent = `${currentLength}/80`;
+        });
+
+        // JavaScript for password requirements validation
+        const passwordInput = document.getElementById('reg-password');
+        const reqLength = document.getElementById('req-length');
+        const reqCase = document.getElementById('req-case');
+        const reqNumber = document.getElementById('req-number');
+
+        passwordInput.addEventListener('keyup', function() {
+            const password = this.value;
+
+            // Validate length
+            if (password.length >= 8) {
+                reqLength.classList.add('valid');
+            } else {
+                reqLength.classList.remove('valid');
+            }
+
+            // Validate uppercase & lowercase
+            const hasUpperCase = /[A-Z]/.test(password);
+            const hasLowerCase = /[a-z]/.test(password);
+            if (hasUpperCase && hasLowerCase) {
+                reqCase.classList.add('valid');
+            } else {
+                reqCase.classList.remove('valid');
+            }
+
+            // Validate number
+            const hasNumber = /[0-9]/.test(password);
+            if (hasNumber) {
+                reqNumber.classList.add('valid');
+            } else {
+                reqNumber.classList.remove('valid');
+            }
+        });
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const fullname = document.getElementById('reg-fullname').value.trim();
+            const email = document.getElementById('reg-email').value.trim().toLowerCase();
+            const password = document.getElementById('reg-password').value;
+            const confirmPassword = document.getElementById('reg-confirm-password').value;
+
+            // Kiểm tra mật khẩu khớp nhau (Quy tắc UC-02)
+            if (password !== confirmPassword) {
+                alert("Mật khẩu nhập lại không trùng khớp! Vui lòng kiểm tra lại.");
+                return;
+            }
+
+            // Kiểm tra độ dài mật khẩu >= 8
+            if (password.length < 8) {
+                alert("Mật khẩu phải có ít nhất 8 ký tự!");
+                return;
+            }
+
+            // Kiểm tra trùng lặp email/tài khoản (Quy tắc UC-02)
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            const isExisted = users.some(u => u.email === email || (u.username && u.username === email));
+            if (isExisted || email === 'quandg@gmail.com') {
+                alert("Email này đã được sử dụng! Vui lòng sử dụng email khác hoặc Đăng nhập.");
+                return;
+            }
+
+            const newUser = {
+                username: email.split('@')[0],
+                fullname: fullname,
+                email: email,
+                password: password,
+                matkhau: password,
+                phone: "",
+                address: "",
+                createdAt: new Date().toISOString()
+            };
+
+            users.push(newUser);
+            localStorage.setItem('users', JSON.stringify(users));
+            localStorage.setItem('currentUser', JSON.stringify(newUser));
+            localStorage.setItem('user', JSON.stringify(newUser));
+
+            // Khởi tạo giỏ hàng trống cho tài khoản mới
+            var uId = (newUser.username || newUser.email).toLowerCase().replace(/[^a-z0-9]/g, '_');
+            localStorage.setItem('cart_' + uId, JSON.stringify([]));
+            localStorage.setItem('cart', JSON.stringify([]));
+            localStorage.removeItem('cart_guest');
+            localStorage.removeItem('cartTotal');
+
+            alert("Đăng ký tài khoản thành công! Hệ thống sẽ tự động chuyển hướng.");
+            setTimeout(function() {
+                window.location.href = "Home.html";
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

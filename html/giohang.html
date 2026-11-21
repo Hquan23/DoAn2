@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng</title>
+    <link rel="stylesheet" href="../css/header_bottom.css">
+    <link rel="stylesheet" href="../css/giohang.css">
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+   <header>
+        <nav>
+            <div class="logo">
+               <a href="../html/Home.html"><img src="../img/logo.png" alt="HQ Motor"></a>
+            </div>
+            <div class="menu">
+                <ul>
+                  <li><a href="../html/Home.html">TRANG CHỦ</a></li>
+                    <li class="drop-menu"><a href="#">SẢN PHẨM <span class="arrow">&#9662;</span></a>
+                    <ul class="drop-item">
+                    <li><a href="../html/sanphamvinf.html"><img src="../img/logo-vinfast-150x150.png" alt="">VINFAST</a></li>
+                    <li><a href="#"><img src="../img/logo-honda-150x150.png" alt=""> HONDA</a></li>
+                    <li><a href="#"><img src="../img/logo-yamaha-150x150.png" alt=""> YAMAHA</a></li>
+                    <li><a href="../html/xemotor.html"><img src="../img/motorcycle.png" alt=""> MÔ TÔ</a></li>
+                    <li><a href="#"><img src="../img/logo-50cc-150x150.png" alt=""> XE 50CC</a></li>
+                    <li><a href="#"><img src="../img/helmet.png" alt="">XE NHẬP KHẨU</a></li>
+                    </ul>
+                    </li>
+                    <li><a href="../html/muatragop.html">TRẢ GÓP</a></li>
+                    <li class="drop-menu"><a href="../html/tintuc.html">TIN TỨC<span class="arrow">&#9662;</span></a>
+                    <ul class="drop-item">
+                      <li><a href="../html/tintuc.html">TIN TỨC CHUNG</a></li>
+                      <li><a href="../html/khuyenmai.html">KHUYẾN MÃI</a></li>
+                    </ul>
+                    </li>
+                    <li><a href="../html/chinhsach.html">CHÍNH SÁCH</a></li>
+                    <li><a href="../html/lienhe.html">LIÊN HỆ</a></li>
+                </ul>
+            </div>
+      <div class="search-tienich">
+        <div class="search-box"> <input type="text" placeholder="Viết gì đó.">
+          <i class='bx bx-search'></i>   
+          </div>   
+            <a href="../html/giohang.html" class="icon-link" title="Giỏ hàng">
+              <i class='bx bx-cart'></i>
+            </a>
+            <a href="../html/donhang.html" class="icon-link" title="Đơn hàng của tôi">
+              <i class='bx bx-package'></i>
+            </a>
+            <a href="../html/taikhoan.html" class="icon-link" title="Tài khoản của tôi">
+              <i class='bx bx-user'></i> 
+            </a>
+        </div>  
+    </nav>
+  </header>
+<section class="main-content">
+     <div class="container" style="display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start;">
+    <div class="cart-container" style="flex: 1 1 65%;">
+       <div class="cart-table" id="cart-table">
+        <div class="cart-header">
+            <div class="cart-img">SẢN PHẦM</div>
+            <div class="cart-desc"></div>
+            <div class="cart-quantity">SỐ LƯỢNG</div>
+            <div class="cart-price">GIÁ</div>
+            <div class="cart-total">TỔNG TIỀN</div>
+            <div class="cart-remove"></div>
+        </div>
+       </div>
+        <div id="cart-items"> 
+            <div class="cart-part">
+            <div class="cart-img">
+                <img src="../img/vinf/theon-s-1.jpg" alt="">
+            </div>
+            <div class="cart-desc">
+                <h3>THEON S</h3>
+            </div>
+            <div class="cart-quantity">
+                <input type="number" id="quantity" min="0">
+            </div>
+            <div class="cart-price">
+                <h4>50.000.000₫</h4>
+            </div>
+            <div class="cart-total">
+                <h4>50.000.000₫</h4>
+            </div>
+            <div class="cart-remove">
+                <button>Remove</button>
+            </div>
+        </div>
+    </div>
+       
+    <div class="gohome-update">
+        <div class="bt-left">
+            <a href="../html/Home.html" class="continue-btn">← MUA TIẾP</a>
+        </div>
+        <div class="bt-right">
+            <button class="RemoveAll" style="margin-top: 30px;">Xóa Giỏ Hàng</button>
+            <button class="update-btn" onclick="renderCart()">Cộng Giỏ Hàng</button>
+        </div>
+    </div>
+    </div>
+    <div class="cart-summary"  style="flex: 1 1 30%; border-left: 1px solid #ddd; padding-left: 20px;">
+        <h3 style="margin-bottom: 20px;">TỔNG GIỎ HÀNG</h3>
+        <div class="product-total">
+            <p>Tạm tính: <span id="subtotal" style="color: red;">0₫</span></p>
+            <p>Tổng: <span id="total" style="color: red;">0₫</span></p>
+        </div>
+        <div class="product-checkout">
+            <a href="../html/thanhtoan.html" class="checkout">Thanh Toán</a>
+        </div>
+        <div class="product-coupon">
+            <label><strong>MÃ GIẢM GIÁ</strong></label>
+            <input type="text" placeholder="Coupon code">
+            <button class="apply-cp">Áp mã giảm giá</button>
+        </div>
+        
+    </div>
+ </div>
+ <div class="cart-empty">
+        <h2>Giỏ Hàng Trống</h2>
+        <a href="../html/Home.html">
+            <button class="HomeBtn">Về Trang Chủ</button>
+        </a>
+    </div>
+</section>
+    <section class="support">
+    <div class="hotline-background">
+        <div class="hotline-container">
+            <div class="hotline-box">
+                <img src="../img/customer-service-5.png" alt="Tư vấn bán hàng" class="hotline-icon" >
+                <div class="hotline-info">
+                <div class="hotline-phone">0938 012 345</div>
+                <div class="hotline-text">Giải đáp các vấn đề bán hàng</div>
+                </div>
+            </div>
+            <div class="hotline-box">
+                <img src="../img/tools-1.png" alt="sửa chữa" class="hotline-icon">
+                <div class="hotline-info">
+                <div class="hotline-phone">0983 345 123</div>
+                <div class="hotline-text">Giải đáp sửa chữa và bảo hành</div>
+                </div>
+            </div>
+            <div class="hotline-box">
+                <img src="../img/customer-service-6.png" alt="hỗ trợ" class="hotline-icon">
+                <div class="hotline-info">
+                <div class="hotline-phone">0983 456 123</div>
+                <div class="hotline-text">Bán hàng và sau bán hàng</div>
+                </div>
+            </div>
+        </div> 
+    </section>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-cont">
+                <h3>LIÊN HỆ VỚI CHÚNG TÔI</h3>
+                <h4 class="shop-name">CỬA HÀNG BÁN XE MÁY,MOTOR HỒNG QUÂN</h4>
+            <p>
+                <i class='bxs  bx-location'  style='color:#000000'></i> 
+                <strong>Địa chỉ:</strong> TRUNG ĐẠO-TT.YÊN MỸ-HƯNG YÊN
+            </p>
+            <p>
+                <i class='bxs  bxs-phone-ring'  style='color:#000000'></i> 
+                <strong>Điện thoại:</strong> <span class="hotline">0938 33 66 01</span>
+            </p>
+        </div>
+        <div class="footer-list">
+             <h3>SẢN PHẨM</h3>
+            <ul>
+                <li>VINFAST</li>
+                <li>HONDA</li>
+                <li>YAMAHA</li>
+                <li>MOTOR</li>
+                <li>XE 50CC</li>
+            </ul>
+        </div>
+           <div class="footer-fanpage">
+    <h3>MẠNG XÃ HỘI</h3>
+  <div class="fanpage-icons">
+    <a><img src="../img/icon-facebook.png" alt="Facebook"></a>
+    <a><img src="../img/icon-tiktok.png" alt="TikTok"></a>
+    <a><img src="../img/icon-youtube.png" alt="YouTube"></a>
+    <a><img src="../img/icon-zalo.png" alt="Zalo"></a>
+  </div>
+</div>
+</div>
+    <div class="footer-bottom">
+  <p> &copy; 2025 <strong>Bản Quyền Thuộc Về Hồng Quân Motor</strong></p>
+</div>
+    </footer>
+ <script src="../js/giohang.js"></script>
+ <script src="../js/header.js"></script>
+</body>
+</html>

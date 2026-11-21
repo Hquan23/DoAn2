@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập</title>
+    <link rel="stylesheet" href="../css/dangnhap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Đăng nhập</h2>
+        <div id="already-logged-box" style="display: none; background: #eafaf1; border: 1px solid #28a745; padding: 12px; border-radius: 6px; margin-bottom: 20px; font-size: 14px; color: #155724; text-align: left;">
+            <div><i class="fas fa-check-circle"></i> Bạn đã đăng nhập: <strong id="logged-user-name"></strong></div>
+            <div style="margin-top: 10px; display: flex; gap: 8px;">
+                <a href="../html/taikhoan.html" style="flex: 1; text-align: center; background: #28a745; color: #fff; padding: 8px 10px; border-radius: 4px; text-decoration: none; font-size: 13px; font-weight: bold;">Tài khoản của tôi</a>
+                <button type="button" onclick="logoutFromLogin()" style="background: #dc3545; color: #fff; border: none; padding: 8px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: bold;">Đăng xuất</button>
+            </div>
+        </div>
+        <form id="target" action="Home.html">
+            <div class="input-group">
+                <input type="text" id="taikhoan" name="taikhoan" placeholder="Nhập tài khoản.." required>
+            </div>
+            <div class="input-group password-group">
+                <input type="password" id="matkhau" name="matkhau" placeholder="Nhập mật khẩu.." required>
+                <span class="password-toggle"><i class="far fa-eye"></i></span>
+            </div>
+            <div class="options-group">
+                <label>
+                    <input type="checkbox" id="remember-me"> Ghi nhớ tài khoản
+                </label>
+                <a href="../html/quenmatkhau.html">Quên mật khẩu?</a>
+            </div>
+            <button type="submit" class="login-button">Đăng nhập</button>
+            <label id="err" style="color: red; margin-top: 10px; display: block; font-size: 14px;"></label>
+            <p class="signup-prompt">Chưa có tài khoản?</p>
+            <a href="../html/dangky.html" class="signup-button">Đăng ký tài khoản</a>
+        </form>
+        
+    </div>
+
+    <script>
+        document.querySelector('.password-toggle').addEventListener('click', function() {
+            const passwordInput = this.previousElementSibling;
+            const icon = this.querySelector('i');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('far', 'fa-eye');
+                icon.classList.add('far', 'fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('far', 'fa-eye-slash');
+                icon.classList.add('far', 'fa-eye');
+            }
+        });
+
+        $('#err').html('');
+
+        // Kiểm tra xem đã có người dùng đăng nhập chưa
+        var loggedUser = JSON.parse(localStorage.getItem('currentUser')) || JSON.parse(localStorage.getItem('user'));
+        if (loggedUser) {
+            var name = loggedUser.fullname || loggedUser.username || loggedUser.tailkhoan || "Thành viên";
+            $('#logged-user-name').text(name);
+            $('#already-logged-box').show();
+        }
+
+        function logoutFromLogin() {
+            localStorage.removeItem('currentUser');
+            localStorage.removeItem('user');
+            localStorage.removeItem('cart');
+            localStorage.removeItem('cart_guest');
+            localStorage.removeItem('cartTotal');
+            $('#already-logged-box').hide();
+            $('#taikhoan').val('');
+            $('#matkhau').val('');
+            alert('Đã đăng xuất tài khoản!');
+        }
+
+        // Kiểm tra xem tài khoản có đang bị khóa không (Quy tắc UC-01: khóa 15 phút nếu nhập sai 5 lần)
+        function checkLockStatus() {
+            const lockUntil = localStorage.getItem('login_lock_until');
+            if (lockUntil && Date.now() < parseInt(lockUntil)) {
+                const remainingMinutes = Math.ceil((parseInt(lockUntil) - Date.now()) / (60 * 1000));
+                $('#err').html(`Tài khoản tạm thời bị khóa do nhập sai quá 5 lần. Vui lòng thử lại sau ${remainingMinutes} phút.`);
+                $('.login-button').prop('disabled', true).css('opacity', '0.6');
+                return true;
+            } else {
+                localStorage.removeItem('login_lock_until');
+                $('.login-button').prop('disabled', false).css('opacity', '1');
+                return false;
+            }
+        }
+
+        checkLockStatus();
+
+        $("#target").submit(function (event) {
+            event.preventDefault();
+
+            if (checkLockStatus()) return;
+
+            var _taikhoan = $('#taikhoan').val().trim();
+            var _matkhau = $('#matkhau').val();
+
+            // Lấy danh sách users từ localStorage
+            var users = JSON.parse(localStorage.getItem('users')) || [];
+            var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+            var matchedUser = null;
+
+            // Kiểm tra trong danh sách users đăng ký
+            matchedUser = users.find(function(u) {
+                var matchName = (u.username && u.username.toLowerCase() === _taikhoan.toLowerCase()) || 
+                                (u.email && u.email.toLowerCase() === _taikhoan.toLowerCase());
+                var matchPass = (u.password === _matkhau || u.matkhau === _matkhau);
+                return matchName && matchPass;
+            });
+
+            // Kiểm tra với tài khoản mặc định quandg / 123 hoặc currentUser
+            if (!matchedUser) {
+                var defaultPass = (currentUser && (currentUser.password || currentUser.matkhau)) ? (currentUser.password || currentUser.matkhau) : '123';
+                if ((_taikhoan.toLowerCase() === 'quandg' || _taikhoan.toLowerCase() === 'quandg@gmail.com') && _matkhau === defaultPass) {
+                    matchedUser = currentUser || {
+                        username: 'quandg',
+                        fullname: 'Đặng Hồng Quân',
+                        email: 'quandg@gmail.com',
+                        phone: '0938336601',
+                        address: 'Trung Đạo, TT. Yên Mỹ, Hưng Yên',
+                        password: defaultPass
+                    };
+                }
+            }
+
+            if (matchedUser) {
+                // Đăng nhập thành công -> xóa số lần sai
+                localStorage.removeItem('failed_attempts');
+                localStorage.setItem('currentUser', JSON.stringify(matchedUser));
+                localStorage.setItem('user', JSON.stringify(matchedUser));
+
+                // Đồng bộ giỏ hàng riêng của tài khoản này
+                var uId = (matchedUser.username || matchedUser.email || matchedUser.tailkhoan).toLowerCase().replace(/[^a-z0-9]/g, '_');
+                var uCart = JSON.parse(localStorage.getItem('cart_' + uId)) || [];
+                localStorage.setItem('cart', JSON.stringify(uCart));
+
+                $('#err').css('color', '#28a745').html('Đăng nhập thành công! Đang chuyển hướng...');
+                setTimeout(function() {
+                    window.location.href = "Home.html";
+                }, 1000);
+            } else {
+                // Tăng số lần thử sai
+                var attempts = parseInt(localStorage.getItem('failed_attempts') || '0') + 1;
+                localStorage.setItem('failed_attempts', attempts);
+
+                if (attempts >= 5) {
+                    var lockDuration = 15 * 60 * 1000; // 15 phút theo đặc tả UC-01
+                    localStorage.setItem('login_lock_until', Date.now() + lockDuration);
+                    $('#err').css('color', 'red').html('Bạn đã nhập sai 5 lần liên tiếp. Tài khoản bị tạm khóa 15 phút.');
+                    $('.login-button').prop('disabled', true).css('opacity', '0.6');
+                } else {
+                    $('#err').css('color', 'red').html(`Tài khoản hoặc mật khẩu không đúng (Lần ${attempts}/5).`);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+</body>
+</html>

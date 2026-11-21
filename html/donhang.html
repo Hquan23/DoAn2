@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đơn hàng của tôi - HQ Motor</title>
+    <link rel="stylesheet" href="../css/header_bottom.css">
+    <link rel="stylesheet" href="../css/donhang.css">
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="../html/Home.html"><img src="../img/logo.png" alt="HQ Motor"></a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="../html/Home.html">TRANG CHỦ</a></li>
+                    <li class="drop-menu"><a href="#">SẢN PHẨM <span class="arrow">&#9662;</span></a>
+                        <ul class="drop-item">
+                            <li><a href="../html/sanphamvinf.html"><img src="../img/logo-vinfast-150x150.png" alt="">VINFAST</a></li>
+                            <li><a href="../html/sanphamhonda.html"><img src="../img/logo-honda-150x150.png" alt=""> HONDA</a></li>
+                            <li><a href="../html/sanphamyamaha.html"><img src="../img/logo-yamaha-150x150.png" alt=""> YAMAHA</a></li>
+                            <li><a href="../html/xemotor.html"><img src="../img/motorcycle.png" alt=""> MÔ TÔ</a></li>
+                            <li><a href="../html/xe50cc.html"><img src="../img/logo-50cc-150x150.png" alt=""> XE 50CC</a></li>
+                            <li><a href="../html/xenhapkhau.html"><img src="../img/helmet.png" alt="">XE NHẬP KHẨU</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../html/muatragop.html">TRẢ GÓP</a></li>
+                    <li class="drop-menu"><a href="../html/tintuc.html">TIN TỨC<span class="arrow">&#9662;</span></a>
+                        <ul class="drop-item">
+                            <li><a href="../html/tintuc.html">TIN TỨC CHUNG</a></li>
+                            <li><a href="../html/khuyenmai.html">KHUYẾN MÃI</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../html/chinhsach.html">CHÍNH SÁCH</a></li>
+                    <li><a href="../html/lienhe.html">LIÊN HỆ</a></li>
+                </ul>
+            </div>
+            <div class="search-tienich">
+                <div class="search-box">
+                    <input type="text" placeholder="Tìm sản phẩm..." id="search-input">
+                    <i class='bx bx-search'></i>
+                </div>
+                <a href="../html/giohang.html" class="icon-link" title="Giỏ hàng">
+                    <i class='bx bx-cart'></i>
+                </a>
+                <a href="../html/donhang.html" class="icon-link" title="Đơn hàng của tôi" style="color: #e62e2e;">
+                    <i class='bx bx-package'></i>
+                </a>
+                <a href="../html/taikhoan.html" class="icon-link" title="Tài khoản của tôi">
+                    <i class='bx bx-user'></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- NỘI DUNG CHÍNH -->
+    <div class="main-content">
+        <div class="order-page-container">
+            <div class="order-breadcrumb">
+                <a href="../html/Home.html">TRANG CHỦ</a> / <a href="../html/taikhoan.html">TÀI KHOẢN</a> / <span>ĐƠN HÀNG CỦA TÔI</span>
+            </div>
+
+            <div class="order-header-title">
+                <h1><i class='bx bx-package'></i> THEO DÕI ĐƠN HÀNG</h1>
+                <a href="../html/taikhoan.html" style="color: #007bff; text-decoration: none; font-size: 14px;">
+                    <i class='bx bx-user'></i> Quản lý tài khoản
+                </a>
+            </div>
+
+            <!-- Thanh tìm kiếm đơn hàng -->
+            <div class="order-search-bar">
+                <div class="order-search-input">
+                    <i class='bx bx-search'></i>
+                    <input type="text" id="order-search-input" placeholder="Tìm đơn hàng theo Mã đơn hàng, Số điện thoại hoặc Tên xe...">
+                </div>
+            </div>
+
+            <!-- Tabs phân loại trạng thái đơn hàng (Đặc tả UC-04) -->
+            <div class="order-tabs">
+                <button class="order-tab-btn active" data-status="all">
+                    Tất cả đơn <span class="badge-count" id="count-all">0</span>
+                </button>
+                <button class="order-tab-btn" data-status="pending">
+                    Chờ xác nhận <span class="badge-count" id="count-pending">0</span>
+                </button>
+                <button class="order-tab-btn" data-status="shipping">
+                    Đang giao hàng <span class="badge-count" id="count-shipping">0</span>
+                </button>
+                <button class="order-tab-btn" data-status="completed">
+                    Đã hoàn thành <span class="badge-count" id="count-completed">0</span>
+                </button>
+                <button class="order-tab-btn" data-status="cancelled">
+                    Đã hủy <span class="badge-count" id="count-cancelled">0</span>
+                </button>
+            </div>
+
+            <!-- Danh sách đơn hàng -->
+            <div id="orders-list-container">
+                <!-- Sẽ được nạp động từ js/donhang.js -->
+            </div>
+
+            <!-- Trạng thái trống khi không có đơn -->
+            <div class="order-empty-state" id="order-empty-state" style="display: none;">
+                <i class='bx bx-receipt'></i>
+                <h3>Bạn chưa có đơn hàng nào</h3>
+                <p>Khám phá các dòng xe motor, xe máy điện mới nhất và đặt hàng ngay hôm nay!</p>
+                <a href="../html/Home.html" class="btn-shop-now">TIẾP TỤC MUA SẮM</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL XEM CHI TIẾT ĐƠN HÀNG -->
+    <div class="modal-overlay" id="orderDetailModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Chi tiết đơn hàng <span id="modal-order-id" style="color: #e62e2e; font-weight: bold;"></span></h3>
+                <button class="modal-close-btn" onclick="closeOrderDetail()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- Thông tin người nhận -->
+                <div class="modal-info-group">
+                    <div class="modal-info-row">
+                        <span class="label">Ngày đặt hàng:</span>
+                        <span class="value" id="modal-order-date"></span>
+                    </div>
+                    <div class="modal-info-row">
+                        <span class="label">Trạng thái:</span>
+                        <span class="value" id="modal-order-status"></span>
+                    </div>
+                    <div class="modal-info-row">
+                        <span class="label">Họ tên người nhận:</span>
+                        <span class="value" id="modal-cust-name"></span>
+                    </div>
+                    <div class="modal-info-row">
+                        <span class="label">Số điện thoại:</span>
+                        <span class="value" id="modal-cust-phone"></span>
+                    </div>
+                    <div class="modal-info-row">
+                        <span class="label">Email:</span>
+                        <span class="value" id="modal-cust-email"></span>
+                    </div>
+                    <div class="modal-info-row">
+                        <span class="label">Địa chỉ giao xe:</span>
+                        <span class="value" id="modal-cust-address"></span>
+                    </div>
+                    <div class="modal-info-row">
+                        <span class="label">Hình thức thanh toán:</span>
+                        <span class="value" id="modal-cust-payment"></span>
+                    </div>
+                    <div class="modal-info-row">
+                        <span class="label">Ghi chú:</span>
+                        <span class="value" id="modal-cust-note"></span>
+                    </div>
+                </div>
+
+                <!-- Danh sách sản phẩm trong đơn -->
+                <h4 style="margin-bottom: 12px; color: #333;">Danh sách sản phẩm</h4>
+                <div id="modal-items-container" style="border: 1px solid #eee; border-radius: 6px; padding: 10px; margin-bottom: 20px;">
+                    <!-- Nạp động -->
+                </div>
+
+                <!-- Tổng tiền -->
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 2px solid #ddd;">
+                    <span style="font-size: 16px; font-weight: bold; color: #333;">Tổng thanh toán:</span>
+                    <span style="font-size: 22px; font-weight: bold; color: #e62e2e;" id="modal-order-total"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER HỖ TRỢ -->
+    <section class="hotline-background">
+        <div class="hotline-container">
+            <div class="hotline-box">
+                <img src="../img/customer-service-2.png" alt="tư vấn" class="hotline-icon">
+                <div class="hotline-info">
+                    <div class="hotline-phone">0938 012 345</div>
+                    <div class="hotline-text">Giải đáp các vấn đề bán hàng</div>
+                </div>
+            </div>
+            <div class="hotline-box">
+                <img src="../img/tools-1.png" alt="sửa chữa" class="hotline-icon">
+                <div class="hotline-info">
+                    <div class="hotline-phone">0983 345 123</div>
+                    <div class="hotline-text">Giải đáp sửa chữa và bảo hành</div>
+                </div>
+            </div>
+            <div class="hotline-box">
+                <img src="../img/customer-service-6.png" alt="hỗ trợ" class="hotline-icon">
+                <div class="hotline-info">
+                    <div class="hotline-phone">0983 456 123</div>
+                    <div class="hotline-text">Bán hàng và sau bán hàng</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CHÍNH -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-cont">
+                <h3>LIÊN HỆ VỚI CHÚNG TÔI</h3>
+                <h4 class="shop-name">CỬA HÀNG BÁN XE MÁY, MOTOR HỒNG QUÂN</h4>
+                <p><i class='bx bxs-location-plus' style='color:#e53935; margin-right: 8px;'></i> <strong>Địa chỉ:</strong> TRUNG ĐẠO - TT. YÊN MỸ - HƯNG YÊN</p>
+                <p><i class='bx bxs-phone-call' style='color:#e53935; margin-right: 8px;'></i> <strong>Điện thoại:</strong> <span class="hotline">0938 33 66 01</span></p>
+            </div>
+            <div class="footer-list">
+                <h3>SẢN PHẨM</h3>
+                <ul>
+                    <li><a href="../html/sanphamvinf.html" style="color: inherit; text-decoration: none;">VINFAST</a></li>
+                    <li><a href="../html/sanphamhonda.html" style="color: inherit; text-decoration: none;">HONDA</a></li>
+                    <li><a href="../html/sanphamyamaha.html" style="color: inherit; text-decoration: none;">YAMAHA</a></li>
+                    <li><a href="../html/xemotor.html" style="color: inherit; text-decoration: none;">MOTOR</a></li>
+                    <li><a href="../html/xe50cc.html" style="color: inherit; text-decoration: none;">XE 50CC</a></li>
+                </ul>
+            </div>
+            <div class="footer-fanpage">
+                <h3>MẠNG XÃ HỘI</h3>
+                <div class="fanpage-icons">
+                    <a><img src="../img/icon-facebook.png" alt="Facebook"></a>
+                    <a><img src="../img/icon-tiktok.png" alt="TikTok"></a>
+                    <a><img src="../img/icon-youtube.png" alt="YouTube"></a>
+                    <a><img src="../img/icon-zalo.png" alt="Zalo"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 <strong>Bản Quyền Thuộc Về Hồng Quân Motor</strong></p>
+        </div>
+    </footer>
+
+    <script src="../js/donhang.js"></script>
+    <script src="../js/header.js"></script>
+</body>
+</html>

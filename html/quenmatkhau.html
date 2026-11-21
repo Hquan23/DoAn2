@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quên Mật Khẩu - HQ Motor</title>
+    <link rel="stylesheet" href="../css/dangnhap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .step-section {
+            display: none;
+        }
+        .step-section.active {
+            display: block;
+        }
+        .instruction-text {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .otp-hint {
+            background: #e8f4fd;
+            border: 1px dashed #007bff;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #0056b3;
+            margin-bottom: 15px;
+        }
+        .success-box {
+            background: #eafaf1;
+            border: 1px solid #28a745;
+            color: #155724;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+        .back-login {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #6c757d;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+        .back-login:hover {
+            color: #e62e2e;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container" style="width: 420px;">
+        <h2>Khôi phục mật khẩu</h2>
+
+        <!-- BƯỚC 1: NHẬP TÀI KHOẢN HOẶC EMAIL -->
+        <div id="step-1" class="step-section active">
+            <p class="instruction-text">
+                Vui lòng nhập Tên tài khoản hoặc Email đã đăng ký để nhận mã khôi phục mật khẩu.
+            </p>
+            <form id="form-step-1">
+                <div class="input-group">
+                    <input type="text" id="recover-input" placeholder="Tài khoản hoặc Email..." required>
+                </div>
+                <button type="submit" class="login-button" style="background-color: #e62e2e;">GỬI MÃ XÁC THỰC</button>
+                <div id="err-step-1" style="color: red; margin-bottom: 15px; font-size: 14px; display: none;"></div>
+            </form>
+            <a href="../html/dangnhap.html" class="back-login"><i class="fas fa-arrow-left"></i> Quay lại Đăng nhập</a>
+        </div>
+
+        <!-- BƯỚC 2: NHẬP MÃ OTP VÀ ĐẶT MẬT KHẨU MỚI -->
+        <div id="step-2" class="step-section">
+            <div class="otp-hint" id="otp-hint-box">
+                <i class="fas fa-info-circle"></i> Mã OTP xác thực là: <strong id="generated-otp">686868</strong>
+            </div>
+            <p class="instruction-text">
+                Nhập mã OTP và mật khẩu mới cho tài khoản: <strong id="target-account-name" style="color: #222;"></strong>
+            </p>
+            <form id="form-step-2">
+                <div class="input-group">
+                    <input type="text" id="otp-input" placeholder="Nhập mã OTP (6 số)..." maxlength="6" required>
+                </div>
+                <div class="input-group password-group">
+                    <input type="password" id="new-password" placeholder="Nhập mật khẩu mới (tối thiểu 8 ký tự)..." required>
+                    <span class="password-toggle"><i class="far fa-eye"></i></span>
+                </div>
+                <div class="input-group password-group">
+                    <input type="password" id="confirm-new-password" placeholder="Xác nhận mật khẩu mới..." required>
+                    <span class="password-toggle"><i class="far fa-eye"></i></span>
+                </div>
+                <button type="submit" class="login-button" style="background-color: #28a745;">ĐẶT LẠI MẬT KHẨU</button>
+                <div id="err-step-2" style="color: red; margin-bottom: 15px; font-size: 14px; display: none;"></div>
+            </form>
+            <a href="javascript:void(0)" onclick="goToStep(1)" class="back-login"><i class="fas fa-arrow-left"></i> Quay lại bước trước</a>
+        </div>
+
+        <!-- BƯỚC 3: THÀNH CÔNG -->
+        <div id="step-3" class="step-section">
+            <div class="success-box">
+                <i class="fas fa-check-circle" style="font-size: 24px; margin-bottom: 8px; display: block;"></i>
+                <strong>Đổi mật khẩu thành công!</strong>
+                <p style="margin-top: 6px; font-size: 14px;">Mật khẩu mới đã được cập nhật. Bạn có thể đăng nhập ngay bây giờ.</p>
+            </div>
+            <a href="../html/dangnhap.html" class="login-button" style="background-color: #e62e2e; text-decoration: none; display: block; line-height: 20px;">ĐĂNG NHẬP NGAY</a>
+        </div>
+    </div>
+
+    <script>
+        // Toggle ẩn hiện mật khẩu
+        document.querySelectorAll('.password-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const passwordInput = this.previousElementSibling;
+                const icon = this.querySelector('i');
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    icon.classList.remove('far', 'fa-eye');
+                    icon.classList.add('far', 'fa-eye-slash');
+                } else {
+                    passwordInput.type = 'password';
+                    icon.classList.remove('far', 'fa-eye-slash');
+                    icon.classList.add('far', 'fa-eye');
+                }
+            });
+        });
+
+        let currentOtp = "686868";
+        let targetUser = null;
+
+        function goToStep(step) {
+            $('.step-section').removeClass('active');
+            $(`#step-${step}`).addClass('active');
+        }
+
+        // Xử lý Bước 1: Gửi mã xác thực
+        $('#form-step-1').submit(function(e) {
+            e.preventDefault();
+            const inputVal = $('#recover-input').val().trim();
+            $('#err-step-1').hide();
+
+            // Kiểm tra trong localStorage hoặc tài khoản mặc định
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            let currentUser = JSON.parse(localStorage.getItem('currentUser')) || JSON.parse(localStorage.getItem('user'));
+
+            let found = users.find(u => (u.username && u.username.toLowerCase() === inputVal.toLowerCase()) || 
+                                       (u.email && u.email.toLowerCase() === inputVal.toLowerCase()));
+
+            if (!found && currentUser) {
+                if ((currentUser.username && currentUser.username.toLowerCase() === inputVal.toLowerCase()) ||
+                    (currentUser.tailkhoan && currentUser.tailkhoan.toLowerCase() === inputVal.toLowerCase()) ||
+                    (currentUser.email && currentUser.email.toLowerCase() === inputVal.toLowerCase())) {
+                    found = currentUser;
+                }
+            }
+
+            // Nếu nhập tài khoản mặc định 'quandg' hoặc bất kỳ tài khoản demo nào
+            if (!found && (inputVal.toLowerCase() === 'quandg' || inputVal.toLowerCase() === 'quandg@gmail.com')) {
+                found = {
+                    username: 'quandg',
+                    email: 'quandg@gmail.com',
+                    fullname: 'Đặng Hồng Quân'
+                };
+            }
+
+            if (!found) {
+                // Tạo tài khoản giả lập nếu người dùng nhập email mới để vẫn test được suôn sẻ
+                found = {
+                    username: inputVal.split('@')[0],
+                    email: inputVal.includes('@') ? inputVal : `${inputVal}@gmail.com`,
+                    fullname: 'Người dùng'
+                };
+            }
+
+            targetUser = found;
+
+            // Sinh mã OTP 6 số ngẫu nhiên
+            currentOtp = Math.floor(100000 + Math.random() * 900000).toString();
+            $('#generated-otp').text(currentOtp);
+            $('#target-account-name').text(targetUser.username || targetUser.email);
+
+            goToStep(2);
+        });
+
+        // Xử lý Bước 2: Xác nhận OTP & Đặt lại mật khẩu
+        $('#form-step-2').submit(function(e) {
+            e.preventDefault();
+            const otpVal = $('#otp-input').val().trim();
+            const newPass = $('#new-password').val();
+            const confirmPass = $('#confirm-new-password').val();
+            const errEl = $('#err-step-2');
+
+            errEl.hide();
+
+            if (otpVal !== currentOtp) {
+                errEl.text('Mã OTP không chính xác. Vui lòng kiểm tra lại.').show();
+                return;
+            }
+
+            if (newPass.length < 8) {
+                errEl.text('Mật khẩu mới phải có tối thiểu 8 ký tự.').show();
+                return;
+            }
+
+            if (newPass !== confirmPass) {
+                errEl.text('Mật khẩu xác nhận không trùng khớp.').show();
+                return;
+            }
+
+            // Cập nhật mật khẩu vào localStorage
+            if (targetUser) {
+                targetUser.password = newPass;
+                targetUser.matkhau = newPass;
+
+                localStorage.setItem('currentUser', JSON.stringify(targetUser));
+                localStorage.setItem('user', JSON.stringify(targetUser));
+
+                let users = JSON.parse(localStorage.getItem('users')) || [];
+                const idx = users.findIndex(u => (u.username && u.username === targetUser.username) || (u.email && u.email === targetUser.email));
+                if (idx !== -1) {
+                    users[idx].password = newPass;
+                    users[idx].matkhau = newPass;
+                } else {
+                    users.push(targetUser);
+                }
+                localStorage.setItem('users', JSON.stringify(users));
+            }
+
+            goToStep(3);
+        });
+    </script>
+</body>
+</html>
