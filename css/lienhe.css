@@ -1,0 +1,146 @@
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.navh {
+  background-image: url(../img/banner-wave-alpha-1.jpg); /* Đổi bằng link đúng hoặc file bạn upload */
+  background-size: cover;
+  background-position: center;
+  height: 300px; /* hoặc tuỳ theo chiều cao mong muốn */
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.banner-content {
+  color: white;
+  padding: 30px 200px;
+}
+.banner-content a{
+    text-decoration: none;
+    color: white;
+}
+.container {
+display: flex;
+  justify-content: space-between;
+  padding: 50px;
+  flex-wrap: wrap;
+  background-color: #fff;
+}
+.c-info{
+  flex: 1;
+  min-width: 300px;
+  margin-right: 50px;
+}
+.info-item {
+  display: flex;
+  margin-bottom: 40px;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+.icon {
+  width: 100px;
+  height: 100px;
+  background-color: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 30px;
+  color: #d71920;
+  transition: background-color 0.3s, color 0.3s;
+  margin-right: 15px;
+}
+.icon:hover {
+  background-color: #d71920;
+  color: white;
+}
+.info-text h4 {
+  margin: 0;
+  font-size: 18px;
+  color: #002856;
+}
+
+.info-text p {
+  margin: 5px 0 0;
+  color: #444;
+  font-size: 16px;
+}
+.c-tuvan {
+  flex: 1;
+  min-width: 500px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.c-tuvan h2 {
+  font-size: 38px;
+  color: #002856;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.c-tuvan p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 30px;
+}
+.c-tuvan .form-inp {
+  margin-bottom: 20px;
+}
+.c-tuvan input {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0;
+  outline: none;
+  padding: 10px 0;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+.c-tuvan textarea {
+  border: none;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  outline: none;
+  padding: 10px 0;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+.c-tuvan textarea {
+  height: 100px;
+  resize: none;
+}
+
+.c-tuvan label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.c-tuvan button {
+  background-color: #d71920;
+  color: white;
+  padding: 14px 40px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: block;
+  margin-top: 20px;
+}
+
+.c-tuvan button:hover {
+  background-color: #b01018;
+}

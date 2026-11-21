@@ -1,0 +1,164 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: flex-start; /* Căn lề trên cùng theo chiều dọc */
+    min-height: 100vh; /* Chiều cao tối thiểu bằng chiều cao viewport */
+    margin: 0;
+    padding-top: 40px; /* Thêm khoảng đệm trên cùng */
+    padding-bottom: 40px; /* Thêm khoảng đệm dưới cùng */
+    box-sizing: border-box; /* Đảm bảo padding được tính vào tổng chiều cao */
+}
+
+/* Container chính của form đăng ký */
+.signup-container {
+    background-color: #ffffff;
+    padding: 30px 40px; /* Điều chỉnh khoảng đệm bên trong */
+    border-radius: 8px; /* Bo tròn góc */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Tạo bóng đổ nhẹ */
+    width: 500px; /* Chiều rộng cố định của form */
+    max-width: 90%; /* Đảm bảo form vẫn hiển thị tốt trên màn hình nhỏ hơn */
+}
+
+/* Kiểu dáng chung cho các nhóm input (bao gồm input và các phần tử liên quan) */
+.input-group {
+    margin-bottom: 20px; /* Khoảng cách giữa các nhóm input */
+    position: relative; /* Quan trọng để định vị các phần tử con tuyệt đối */
+}
+
+/* Kiểu dáng cho tất cả các trường input */
+.input-group input {
+    width: 100%; /* Chiếm toàn bộ chiều rộng của input-group */
+    padding: 12px 15px; /* Khoảng đệm bên trong input */
+    border: 1px solid #cccccc; /* Viền của input */
+    border-radius: 4px; /* Bo tròn góc input */
+    font-size: 16px;
+    box-sizing: border-box; /* Bao gồm padding và border trong tổng chiều rộng/cao */
+    padding-right: 50px; /* Tạo không gian cho biểu tượng mắt hoặc số ký tự */
+}
+
+/* Hiệu ứng khi input được focus (nhấp vào) */
+.input-group input:focus {
+    outline: none; /* Bỏ viền outline mặc định */
+    border-color: #007bff; /* Đổi màu viền */
+    box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25); /* Thêm bóng mờ */
+}
+
+/* Số ký tự cho trường "Họ và tên" */
+.char-count {
+    position: absolute; /* Định vị tuyệt đối */
+    right: 15px; /* Cách lề phải 15px */
+    top: 50%; /* Dịch xuống 50% chiều cao cha */
+    transform: translateY(-50%); /* Dịch lên 50% chiều cao của chính nó để căn giữa */
+    color: #888888;
+    font-size: 14px;
+}
+
+/* Kiểu dáng riêng cho nhóm input mật khẩu (bao gồm input và biểu tượng mắt) */
+.password-group {
+    display: flex; /* Sử dụng flexbox để căn chỉnh input và biểu tượng */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+/* Kiểu dáng cho input mật khẩu bên trong nhóm password-group */
+.password-group input {
+    flex-grow: 1; /* Cho phép input chiếm hết không gian còn lại */
+    border-right: none; /* Bỏ viền bên phải để liền mạch với biểu tượng */
+    border-top-right-radius: 0; /* Bỏ bo tròn góc phải trên */
+    border-bottom-right-radius: 0; /* Bỏ bo tròn góc phải dưới */
+}
+
+/* Kiểu dáng cho biểu tượng mắt (bật tắt mật khẩu) */
+.password-toggle {
+    padding: 12px 15px; /* Khoảng đệm */
+    border: 1px solid #cccccc; /* Viền */
+    border-left: none; /* Bỏ viền bên trái để liền mạch với input */
+    border-top-right-radius: 4px; /* Bo tròn góc phải trên */
+    border-bottom-right-radius: 4px; /* Bo tròn góc phải dưới */
+    background-color: #f8f9fa; /* Màu nền */
+    cursor: pointer; /* Biến con trỏ thành bàn tay khi di chuột qua */
+    color: #888888;
+}
+
+.password-toggle i {
+    font-size: 16px; /* Kích thước icon */
+}
+
+/* Kiểu dáng cho phần hiển thị các điều kiện mật khẩu */
+.password-requirements {
+    margin-bottom: 25px;
+    color: #555555;
+    font-size: 14px;
+    text-align: left; /* Căn lề văn bản sang trái */
+}
+
+.password-requirements p {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.password-requirements ul {
+    list-style: none; /* Bỏ dấu đầu dòng mặc định */
+    padding: 0; /* Bỏ padding mặc định của ul */
+    margin: 0; /* Bỏ margin mặc định của ul */
+}
+
+.password-requirements li {
+    margin-bottom: 8px;
+    display: flex; /* Sử dụng flexbox để căn chỉnh icon và text */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.password-requirements li i {
+    margin-right: 10px; /* Khoảng cách giữa icon và text */
+    color: #cccccc; /* Màu mặc định cho icon (chưa đạt điều kiện) */
+}
+
+.password-requirements li.valid i {
+    color: #28a745; /* Màu xanh lá cây cho icon khi điều kiện hợp lệ */
+}
+
+
+/* Kiểu dáng cho các nhóm ô checkbox */
+.checkbox-group {
+    margin-bottom: 20px;
+    text-align: left; /* Căn lề văn bản sang trái */
+}
+
+.checkbox-group label {
+    display: block; /* Đổi từ flex sang block để text xuống dòng tự nhiên */
+    font-size: 14px;
+    color: #555555;
+    cursor: pointer;
+    line-height: 1.6;
+    font-weight: 400;
+    padding-left: 0;
+}
+.checkbox-group label a {
+    color: #007bff; /* Màu xanh cho liên kết */
+    text-decoration: none; /* Bỏ gạch chân */
+}
+.checkbox-group input[type="checkbox"] {
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-top: 0;
+}
+
+/* Kiểu dáng cho nút "Đăng ký" */
+.register-button {
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    padding: 12px; /* Khoảng đệm bên trong nút */
+    background-color: #6c757d; /* Màu xám theo hình ảnh */
+    color: white; /* Màu chữ trắng */
+    border: none; /* Bỏ viền */
+    border-radius: 4px; /* Bo tròn góc */
+    font-size: 18px;
+    cursor: pointer; /* Biến con trỏ thành bàn tay */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu nền */
+    margin-top: 10px; /* Khoảng cách phía trên nút */
+}
+
+.register-button:hover {
+    background-color: #5a6268; /* Màu xám đậm hơn một chút khi di chuột */
+}

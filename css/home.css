@@ -1,0 +1,317 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    font-family: Arial, sans-serif;
+}
+body {
+  background: #f9f9f9;
+  color: #333;
+}
+
+.banner{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+ 
+}
+.slide-show{
+  width: 100vw;
+  height: 82vh;
+  overflow: hidden;
+  position: relative;
+}
+ 
+.slide-img {
+  display: flex;
+transition: transform 0.5s ease-in-out;
+  
+}
+.slide-img img {
+    width: 100vw; /* Chiếm 100% chiều rộng của viewport (màn hình) */
+     height: 82vh; 
+             /*  Khớp với chiều cao của .slide-show */
+  object-fit: cover;    /* Cắt cho ảnh vừa khung mà không méo */
+  display: block;
+  flex-shrink: 0;
+}
+.btn{
+  font-size: 40px;
+  color: #999;
+  position: absolute;
+  top: 50%;
+  transition: 0,5s;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.btn:hover{
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+.btn-left{
+  left: 0;
+}
+.btn-right{
+  right: 0;
+}
+
+/* PHAN SAN PHAM */
+
+.product-section {
+  padding: 20px 0;/*thu hẹp khoảng trống giữa 2 hàng sp*/
+  background-color: #ffffff;
+   display: flex;
+  justify-content: center;
+}
+.product-container {
+  width: 90%;
+  max-width: 1200px;
+  padding: 20px 0;
+}
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #ddd;
+   height: 44px;
+   background-color: #e8eadf; /*  màu nền */
+              /*  thêm padding trái phải */
+}
+.section-header h2 {
+  background-color: #0056b3;
+  color: #fff;
+  padding: 0 20px;
+  font-size: 22px;
+  text-transform: uppercase;
+  margin: 0;
+  height: 100%;                 /*  chiều cao thực của ảnh */
+  align-items: center;
+  display: flex;
+}
+.section-header .view-all {
+  color: #0056b3;
+  text-decoration: none;
+  font-size: 14px;
+}
+.section-header .view-all:hover {
+  color: green;
+}
+.list-product{
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.product-item{
+flex: 0 1 calc(20% - 20px);  /* 4 sp */
+  min-width: 60px;
+  text-align: center;
+}
+.product-item img {
+  width: 100%;
+  height: auto;
+  max-height: 150px;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+
+.product-item img:hover {
+  transform: scale(1.05);
+}
+.product-item p {
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 14px;
+} 
+
+/* PHAN BOTTOM */
+
+.hotline-background {
+  background-image: url(../img/bg-footer.jpg); 
+  background-size: cover;
+  background-position: center;
+  padding: 40px 0;
+}
+.hotline-container {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+.hotline-box {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  width: 330px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+.hotline-box:hover {
+  transform: translateY(-5px);
+}
+
+.hotline-icon {
+  width: 60px;
+  height: 60px;
+}
+.hotline-info {
+  display: flex;
+  flex-direction: column;
+}
+.hotline-phone {
+  color: #e60000;
+  font-weight: 800;
+  font-size: 22px;
+}
+.hotline-text {
+  font-size: 15px;
+  color: #333;
+}
+
+.footer {
+  background-color: #f6f6f6;
+  font-family: 'Arial', sans-serif;
+  color: #111;
+  padding-top: 40px;
+}
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  padding: 0 40px 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+.footer-cont,
+.footer-list,
+.footer-fanpage {
+  flex: 1 1 300px;
+}
+
+.footer-cont h3,
+.footer-list h3,
+.footer-fanpage {
+  position: relative;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  display: inline-block;
+} 
+.footer-cont h3::after {/* gạch chân chữ 1 khoảng*/
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 240px;
+  height: 2px;
+  background-color: #ede8e8;
+}
+.footer-list h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 110px;
+  height: 2px;
+  background-color: #ede8e8;
+}
+
+.shop-name {
+  font-size: 21px;
+  color: #e53935;
+  font-weight: bold;
+  margin: 10px 0;
+  white-space: nowrap;
+}
+
+
+.hotline {
+  color: #2b3e61;
+  font-weight: bold;
+}
+
+.footer-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-list li {
+  font-size: 19px;
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+}
+footer p{
+  font-size: 18px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+.footer-list p i {
+  color: #e53935;
+  margin-right: 8px;
+}
+.footer-fanpage {
+  text-align: center;
+  margin-top: 0px;
+}
+
+.fanpage-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.fanpage-icons img {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.fanpage-icons img:hover {
+  transform: scale(1.1);
+}
+.footer-fanpage h3 {
+  position: relative;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  display: inline-block;
+  text-align: left;
+}
+
+.footer-fanpage h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 140px;
+  height: 2px;
+  background-color: #ede8e8;
+}
+.footer-bottom {
+  background: #b3b3b3;
+  padding: 10px 200px;
+}
+
+.footer-bottom p {
+  color: #8c8a8a;
+  margin: 0;
+  font: 15px 'Arial', sans-serif;
+  text-align: left;
+}
+
+.footer-bottom p strong {
+  font-weight: bold;
+  color: #a1a1a1;
+}

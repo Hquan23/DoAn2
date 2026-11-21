@@ -1,0 +1,605 @@
+/* ========== SECTION HEADER ========== */
+.section-header {
+  text-align: center;
+  padding: 40px 0 20px;
+  background-color: #fafafa;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 30px;
+}
+.title-main {
+  font-size: 34px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+.backgr-title {
+  font-size: 16px;
+  color: #777;
+}
+.backgr-link {
+  color: #aaa;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.backgr-link:hover {
+  color: #000;
+}
+.tinhlaisuat{
+  text-decoration: none;
+  color:#049afe;
+}
+
+/* ========== NỘI DUNG VĂN BẢN ========== */
+.main-text {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 20px 30px;
+    line-height: 1.8;
+    font-size: 17px;
+    color: #333;
+    background-color: #fff;
+}
+.main-text h2 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    border-left: 5px solid #e62e2e;
+    padding-left: 10px;
+}
+.main-text p {
+    margin-bottom: 16px;
+    text-align: justify;
+}
+.main-text ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+.main-text ul li {
+    margin-bottom: 10px;
+}
+.main-text strong {
+    color: #000;
+    font-weight: 600;
+}
+
+/* ========== ẢNH ========== */
+.img-tragop {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+.img-tragop figure {
+    text-align: center;
+    max-width: 100%;
+}
+.img-tragop img {
+    max-width: 100%;
+    width: 700px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+.img-tragop figcaption {
+    font-size: 14px;
+    color: #555;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+/* ========== QUY TRÌNH BƯỚC ========== */
+.quy-trinh-title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+.steps-container {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0 30px;
+    justify-content: center;
+}
+.step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 150px;
+}
+.step-number {
+    width: 48px;
+    height: 48px;
+    background: #e62e2e;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 10px rgba(230,46,46,0.3);
+}
+.step-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.step-content strong {
+    font-size: 14px;
+    color: #e62e2e;
+}
+.step-content span {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.4;
+}
+.step-arrow {
+    color: #e62e2e;
+    font-size: 30px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+/* ========== CÔNG THỨC ========== */
+.formula-box {
+    background: linear-gradient(135deg, #fff3f3 0%, #ffe8e8 100%);
+    border-left: 4px solid #e62e2e;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 17px;
+}
+.formula-box i {
+    font-size: 26px;
+    color: #e62e2e;
+    flex-shrink: 0;
+}
+
+/* ========== MÁY TÍNH TRẢ GÓP ========== */
+.calculator-section {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    padding: 60px 20px;
+    margin-top: 20px;
+}
+.calculator-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.calc-title {
+    color: #fff;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+.calc-title i {
+    color: #e62e2e;
+}
+.calc-subtitle {
+    color: #aaa;
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 15px;
+}
+.calculator-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+@media (max-width: 900px) {
+    .calculator-body { grid-template-columns: 1fr; }
+}
+
+/* Form nhập liệu */
+.calc-form {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 30px;
+}
+.calc-field {
+    margin-bottom: 22px;
+}
+.calc-field label {
+    display: block;
+    color: #ccc;
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+.calc-field input[type="number"] {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+.calc-field input[type="number"]:focus {
+    border-color: #e62e2e;
+    background: rgba(255,255,255,0.12);
+}
+.calc-field input[type="number"]::placeholder {
+    color: #666;
+}
+.calc-hint {
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+    font-weight: 500;
+}
+
+/* Nút kỳ hạn */
+.period-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.period-btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: transparent;
+    color: #ccc;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+.period-btn:hover {
+    border-color: #e62e2e;
+    color: #fff;
+}
+.period-btn.active {
+    background: #e62e2e;
+    border-color: #e62e2e;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Lãi suất */
+.laisuat-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.laisuat-presets {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.preset-btn {
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: transparent;
+    color: #ccc;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.3s;
+}
+.preset-btn:hover {
+    border-color: #e62e2e;
+    color: #fff;
+}
+.preset-btn.active {
+    background: #e62e2e;
+    border-color: #e62e2e;
+    color: #fff;
+}
+
+/* Nút tính */
+.calc-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #e62e2e, #c0392b);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+.calc-btn:hover {
+    background: linear-gradient(135deg, #c0392b, #a93226);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(230,46,46,0.4);
+}
+
+/* Kết quả */
+.calc-result {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 30px;
+}
+.result-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.result-header i {
+    font-size: 24px;
+    color: #e62e2e;
+}
+.result-header h3 {
+    color: #fff;
+    font-size: 18px;
+}
+.result-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+.result-card {
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: transform 0.3s;
+}
+.result-card:hover {
+    transform: translateY(-2px);
+}
+.result-card.highlight {
+    background: rgba(230,46,46,0.15);
+    border-color: rgba(230,46,46,0.4);
+}
+.result-label {
+    color: #aaa;
+    font-size: 12px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.result-value {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+.result-card.highlight .result-value {
+    color: #ff6b6b;
+    font-size: 22px;
+}
+
+/* Bảng lịch trả góp */
+.schedule-section {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+.schedule-section h4 {
+    color: #ccc;
+    font-size: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.table-wrapper {
+    max-height: 300px;
+    overflow-y: auto;
+    border-radius: 8px;
+}
+.table-wrapper::-webkit-scrollbar {
+    width: 6px;
+}
+.table-wrapper::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+}
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(230,46,46,0.5);
+    border-radius: 3px;
+}
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+.schedule-table thead th {
+    background: rgba(230,46,46,0.2);
+    color: #fff;
+    padding: 10px 12px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    font-size: 12px;
+}
+.schedule-table tbody td {
+    padding: 9px 12px;
+    text-align: center;
+    color: #ccc;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.schedule-table tbody tr:hover {
+    background: rgba(255,255,255,0.05);
+}
+.schedule-table tbody tr:last-child td {
+    border-bottom: none;
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
+/* ========== ĐĂNG KÝ TƯ VẤN ========== */
+.register-section {
+    background: #f8f8f8;
+    padding: 60px 20px;
+}
+.register-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 50px;
+    align-items: start;
+}
+@media (max-width: 900px) {
+    .register-wrapper { grid-template-columns: 1fr; }
+}
+
+/* Thông tin đăng ký */
+.register-info h2 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.register-info h2 i {
+    color: #e62e2e;
+}
+.register-info > p {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+.register-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    color: #444;
+}
+.benefit-item i {
+    font-size: 22px;
+    color: #27ae60;
+    flex-shrink: 0;
+}
+
+/* Form đăng ký */
+.register-form {
+    background: #fff;
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+@media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+}
+.required {
+    color: #e62e2e;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 11px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s;
+    font-family: Arial, sans-serif;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #e62e2e;
+    box-shadow: 0 0 0 3px rgba(230,46,46,0.08);
+}
+.form-group textarea {
+    resize: vertical;
+}
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #e62e2e, #c0392b);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+.submit-btn:hover {
+    background: linear-gradient(135deg, #c0392b, #a93226);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(230,46,46,0.3);
+}
+
+/* Thông báo thành công */
+.success-msg {
+    background: #eafaf1;
+    border: 1px solid #27ae60;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #1e8449;
+}
+.success-msg i {
+    font-size: 36px;
+    flex-shrink: 0;
+    color: #27ae60;
+}
+.success-msg strong {
+    font-size: 17px;
+    display: block;
+    margin-bottom: 4px;
+}
+.success-msg p {
+    font-size: 14px;
+    color: #555;
+    margin: 0;
+}

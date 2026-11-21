@@ -1,0 +1,132 @@
+.news-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+.section-header {
+  text-align: center;
+  padding: 40px 0 20px;
+  background-color: #fafafa;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 30px;
+}
+
+.title-main {
+  font-size: 34px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.backgr-title {
+  font-size: 16px;
+  color: #777;
+}
+
+.backgr-link {
+  color: #aaa;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.backgr-link:hover {
+  color: #000;
+}
+
+.backgr-current {
+  color: #000;
+  font-weight: bold;
+}
+.news-inf{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+.news-item {
+  background: #fff;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.news-paper{
+  position: relative;
+}
+.news-paper img {
+  width: 100%;
+  height: 200px;
+  display: block;
+}
+.ngaythang {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #000;
+  width: 41px;
+  height: 41px;
+  font-weight: bold;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 0.6;
+}
+.news-item:hover .ngaythang {
+  background-color: rgb(3, 3, 3);
+  color: rgb(255, 255, 255);
+  transition: all 0.3s ease;
+}
+.ngaythang .ngay {
+  font-size: 16px; 
+}
+
+.ngaythang .thang {
+  font-size: 10px; 
+}
+.news-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 10px;
+  display: inline-block;
+  border-bottom: solid 1px #ddd;
+}
+
+.title-expl {
+  font-size: 14px;
+  color: #555;
+  margin: 0 10px 15px;
+  line-height: 1.4;
+}
+.title-expl:hover {
+  color: rgb(227, 182, 182);
+  transition: all 0.3s ease;
+}
+.btn-pagenumber ul{
+display: flex;
+justify-content: center;
+gap: 10px;
+list-style: none;
+padding: 0;
+margin-top: 40px;
+}
+.page-number{
+display: flex;
+justify-content: center;
+align-items: center;
+width: 36px;
+height: 36px;
+border: 2px solid #000;
+border-radius: 99px;
+font-weight: bold;
+text-decoration: none;
+color: #000;
+transition: background-color 0.3s, color 0.3s;
+cursor: pointer;
+}
+.page-number:hover{
+  color: #fff;
+  background-color: #000
+}

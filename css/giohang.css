@@ -1,0 +1,182 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 100%;
+  padding: 30px;
+}
+
+.cart-header,
+.cart-part {
+  display: grid;
+  grid-template-columns: 100px 1fr 120px 120px 120px 80px;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.cart-header {
+  background-color: #f9f9f9;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #333;
+}
+
+.cart-img img {
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+}
+
+.cart-desc h3 {
+  color: orange;
+  font-size: 16px;
+}
+
+.cart-quantity input {
+  width: 60px;
+  padding: 5px;
+  text-align: center;
+}
+
+.cart-price,
+.cart-total {
+  text-align: right;
+}
+
+.cart-price h4,
+.cart-total h4 {
+  color: red;
+  font-size: 16px;
+}
+
+.cart-remove button {
+  background: transparent;
+  border: none;
+  color: red;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.gohome-update {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.gohome-left {
+  flex: 1;
+}
+
+.gohome-right {
+  display: flex;
+  gap: 10px;
+}
+.continue-btn {
+  border: 2px solid orange;
+  background: white;
+  color: orange;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.continue-btn:hover {
+  background: orange;
+  color: white;
+}
+
+.update-btn {
+  background: #fdd762;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.update-btn:hover {
+  background: #fbc02d;
+}
+
+.cart-summary {
+  max-width: 400px;
+  margin: 40px auto;
+  border-top: 1px solid #ccc;
+  padding-top: 30px;
+}
+
+.product-total p {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.checkout {
+  background-color: #7ad03a;
+  display: block;
+  text-align: center;
+  padding: 12px;
+  border-radius: 3px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 15px;
+}
+
+.product-coupon {
+  margin-top: 20px;
+}
+
+.product-coupon input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.apply-cp {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #aaa;
+  cursor: pointer;
+}
+
+.RemoveAll {
+  background-color: #e4003A;
+  color: #fff;
+  border: none;
+  width: auto;
+  padding: 10px;
+  font-size: 15px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.cart-empty {
+  display: none;
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  font-size: 18px;
+}
+
+.HomeBtn {
+  background-color: black;
+  color: white;
+  padding: 10px 30px;
+  border: none;
+  margin-top: 15px;
+  cursor: pointer;
+}

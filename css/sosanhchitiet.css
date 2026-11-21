@@ -1,0 +1,203 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0px;
+}
+.section-header {
+    background-color: #fff;
+    padding: 100px 0 0 0;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+.section-header a{
+    text-decoration: none;
+}
+.f-title{
+     font-size: 12px;
+     font-weight: bold;
+    color: #817cb7;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.f-title:hover{
+    color: rgb(210, 123, 123);
+}
+header h1 {
+    font-size: 2em;
+    color: #333;
+    margin-top: 0;
+}
+
+.post-info {
+    border-top: 4px solid #eee;
+    font-size: 12px;
+    color: #777;
+    margin-top: 20px;
+    padding-top: 10px;
+}
+/*phần content chính */
+.main-content {
+    padding: 20px 0;
+    background-color: #fff;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.view-img {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.view-img img {
+    max-width: 100%;
+    height: auto;
+    display: block; 
+    margin: 0 auto;
+}
+.view-imgs img {
+    max-width: 100%;
+    width: 500px;
+    height: auto;
+    display: block; 
+    margin: 0 auto;
+}
+/* phần text-content */
+.tongquan, .sosanh {
+margin-bottom: 40px;
+}
+.tongquan h2 , .sosanh h2, .loikhuyen h2, .ketluan h2 {
+    font-size: 1.8em;
+    color: #000000;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.tongquan h3 {
+    font-size: 1.4em;
+    color: #000000;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.tongquan h4 {
+    font-size: 1.2em;
+    color: #333;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+.tongquan ul{
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+.overview-section ul li {
+    margin-bottom: 5px;
+}
+/* sttle table */
+.bangsosanh{
+     width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.bangsosanh th, .bangsosanh td {
+    border-bottom: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+.bangsosanh th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #333;
+}
+.bangsosanh td strong {
+    color: #7e7e7e;
+}
+/* ketluan */
+.more_news{
+    cursor: pointer;
+    font-size: 15px;
+}
+.more_news:hover {
+    color: red;
+}
+.ketluan a :hover{
+    color: red;
+}
+/* bottom */
+.link-mxh {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0 30px;
+}
+.icon-mxh i {
+  font-size: 18px;
+  margin: 0 1px;
+  color: #777;
+  border: 2px solid #ccc;
+  border-radius: 99%;
+  padding: 4px;
+  width: 34px;
+  height: 32px;
+  text-align: center;
+  line-height: 22px;
+  cursor: pointer;
+}
+.fa-facebook-f:hover {
+  background-color: #599aee;
+  color: #4b4a4a;
+}
+.fa-twitter:hover {
+  background-color: #599aee;
+  color: #fff;
+}
+.nav-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  font-size: 15px;
+  margin-bottom: 40px;
+  gap: 10px;
+}
+.nav-cut {
+    width: 1px;
+    background-color: #ccc; /* màu đường chia */
+    height: 40px;            /* hoặc 100% nếu bạn muốn nó dài theo chiều cao nội dung */
+}
+.nav-links div {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+i.fas {
+  margin-right: 5px;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+i.fas:hover {
+  color: #1a76d2;
+}
+.nav-pre a,
+.nav-next a {
+  color: #aeaeae;
+  text-decoration: none;
+}
+.nav-pre a:hover,
+.nav-next a:hover {
+    color: #ea3131;
+    transition: all 0.3s ease;
+}
+.nav-pre a:hover i,
+.nav-next a:hover i {
+    color: #ea3131;
+}

@@ -1,0 +1,339 @@
+body {
+    margin: 0px;
+    background-color: #fff;
+}
+
+.container {
+    margin-left: 60px;
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.sidebar {
+  padding-top: 80px;
+  position: relative; /* Để pseudo-element định vị đúng */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-left: 10px;
+  margin-right: 15px;
+}
+.sidebar::before {
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: 80px;
+  width: 10px;
+  height: 86%;
+  background-color: #ddd;
+}
+
+.sidebar img {
+    width: 100px;
+    opacity: 0.5;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.sidebar img.active {
+    opacity: 1;
+    border-color: #afafaf;
+}
+
+.main-view {
+    width: 500px;
+    padding-top: 80px;
+    position: relative;
+    display: inline-block
+}
+
+.product-image {
+    max-width: 400px;
+    border-radius: 8px;
+}
+
+.sidebar img:hover {
+    transform: scale(1.05);
+}
+
+.btns {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.main-view:hover .btns {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.btn {
+    padding: 10px;
+    color: rgb(176, 176, 176);
+    font-size: 24px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.thongso {
+    margin-top: 28px;
+    max-width: 500px;
+}
+
+.thongso h2 {
+    position: relative;
+    margin-top: 5px;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+.thongso h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px; /* chiều dài gạch */
+  height: 2px;
+  background-color: #ddd; /* màu gạch */
+}
+.title {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.title a {
+    text-decoration: none;
+    color: #999;
+    border-bottom: 3px #ddd;
+    font-size: 16px;
+}
+
+.title a:hover {
+    color: #333;
+}
+.thongso ul {
+  padding-left: 20px;
+  line-height: 1.6;
+  color: #333;
+  font-size: 16px;
+}
+.buttons {
+  display: flex;
+  gap: 15px;
+  margin: 25px 0 15px;
+  flex-wrap: wrap;
+}
+.btn-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.tuvan {
+  background-color: #ff5722;
+}
+.baohanh {
+  background-color: #0056b3;
+}
+.btn-info i {
+  font-size: 18px;
+}
+.buy {
+  margin-top: 20px;
+}
+.btn-buy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background-color: #1f39e7;
+  color: #fff;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-buy:hover {
+  background-color: #333;
+}
+
+.btn-buy .divider {
+  width: 1px;
+  height: 20px;
+  background: white;
+}
+.note {
+  font-size: 14px;
+  color: #555;
+  margin-top: 10px;
+}
+.feature-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 80px;
+  background-color: #ffffff;
+}
+
+.features {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.feature-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.feature-item h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: #b9b9b9;
+  text-transform: uppercase;
+}
+
+.feature-item p {
+  margin: 0;
+  line-height: 1.6;
+  color: #333;
+  font-size: 14px;
+}
+.main-pic {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+}
+.main-pic img {
+  max-width: 100%;
+  height: auto;
+}
+.feature-gallery {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 40px 80px;
+  background-color: #fff;
+  font-family: sans-serif;
+}
+
+.feature-inf {
+  flex: 1;
+  min-width: 160px;
+  max-width: 220px;
+  text-align: left;
+}
+
+.feature-inf img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.feature-inf p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Đảm bảo `.feature-specs` vẫn có max-width và margin: auto như đã sửa trước đó */
+.feature-specs {
+  padding: 40px 20px; /* Giữ padding dọc, giảm padding ngang nếu muốn dùng max-width */
+  font-family: sans-serif;
+  background-color: #fff;
+  max-width: 1350px; /* Đặt chiều rộng tối đa */
+  margin: 0 auto; /* Căn giữa */
+}
+
+.specs-title {
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 3px solid #1a73e8; /* Gạch chân tiêu đề */
+  display: inline-block;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+.specs-table {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px; /* Khoảng cách giữa các cột */
+  flex-wrap: wrap; /* Cho phép các cột xuống hàng trên màn hình nhỏ */
+}
+
+.specs-column {
+  flex: 1; /* Mỗi cột sẽ chiếm không gian bằng nhau */
+  min-width: 300px; /* Chiều rộng tối thiểu cho mỗi cột trước khi xuống hàng */
+}
+
+/* Các thay đổi cho UL và LI */
+.specs-column ul {
+  list-style: none; /* Loại bỏ dấu chấm mặc định của ul */
+  padding: 0; /* Loại bỏ padding mặc định của ul */
+  margin: 0; /* Loại bỏ margin mặc định của ul */
+}
+
+.specs-column li {
+  display: flex; /* Sử dụng flexbox để căn chỉnh các span */
+  justify-content: space-between; /* Đẩy nội dung ra hai bên */
+  padding: 8px 0; /* Padding trên dưới cho mỗi hàng */
+  border-bottom: 1px solid #eee; /* Đường kẻ phân cách giữa các hàng */
+}
+
+
+.specs-column li span {
+  font-size: 14px;
+  color: #7a7b82;
+  /* Nếu muốn các span có kích thước cố định, có thể dùng flex-basis hoặc width */
+  flex-basis: 50%; /* Chia đôi không gian cho 2 span */
+}
+
+.specs-column li span:last-child {
+  font-weight: 500;
+  color: #403e3e;
+  text-align: right; /* Căn phải cho giá trị */
+}
+

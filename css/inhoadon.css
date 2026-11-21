@@ -1,0 +1,81 @@
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     /* Đảm bảo padding và border không làm tăng kích thước tổng thể */
+ }
+ body {
+     width: 1000px;
+     margin: 0 auto;
+     font-family: Arial, sans-serif;
+     color: #333;
+     padding: 20px;
+
+ }
+
+ table {
+     width: 100%;
+     border-collapse: collapse;
+     margin-top: 20px;
+ }
+
+ th,
+ td {
+     border: 1px solid #ccc;
+     padding: 8px;
+     text-align: left;
+ }
+
+ th {
+     background-color: #f2f2f2;
+ }
+
+ .header {
+     text-align: center;
+     margin-bottom: 20px;
+ }
+
+ .header h1 {
+     font-size: 28px;
+     color: #000;
+ }
+
+ .info-section {
+     margin-bottom: 15px;
+     font-size: 14px;
+ }
+
+ .donvi {
+     font-weight: bold;
+ }
+
+ .date {
+     font-style: italic;
+     text-align: center;
+     margin-bottom: 10px;
+ }
+
+
+ .signature-section {
+     display: flex;
+     justify-content: space-around;
+     margin-top: 50px;
+     font-size: 14px;
+     text-align: center;
+ }
+
+ .signature-item {
+     flex: 1;
+     margin: 0 10px;
+ }
+
+ .signature-item .label {
+     font-weight: bold;
+     margin-bottom: 5px;
+ }
+
+ .signature-item .note {
+     font-style: italic;
+     font-size: 12px;
+     margin-top: 5px;
+ }
